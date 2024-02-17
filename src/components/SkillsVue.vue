@@ -204,14 +204,14 @@ body{
 .skills .heading{
     color: var(--text-color);
     text-align: center;
-    font-size: 5rem;
+    font-size: 3.5rem;
 }
 .skills .box-container .box .image {
-    height: 12rem;
-    width: 18rem;
+    height: 8rem;
+    width: 12rem;
     overflow: hidden;
     position: relative;
-    margin-left: 2.5rem;
+    margin-left: 1.5rem;
   }
   span{
     color: var(--main-color);
@@ -219,13 +219,13 @@ body{
   .skills .box-container {
     display: flex;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    gap: 5rem;
-    margin-top: 4rem;
-    padding: 5rem;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    padding: 3rem;
   }
   .skills .box-container .box {
     background-color: var(--bg-color);
-    padding: 2rem;
+    padding: 1.5rem;
   }
  
   .skill .box-container .box .image .content {
@@ -241,18 +241,18 @@ body{
     transform: translateY(100%);
   }
   .skills .box-container .box .image .content h3 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--main-color);
     text-transform: uppercase;
   }
   .title{
     color: var(--text-color);
     text-align: center;
-    font-size: 3.2rem;
-    font-weight: 600;
+    font-size: 4rem;
+    font-weight: 700;
   }
   .skills-column2 .title{
-    margin-top: 4rem;
+    margin-top: 1rem;
   }
   .pie-chart {
     width: 100px; /* Adjust the width of the pie chart */
@@ -284,20 +284,15 @@ body{
     background-color: var(--second-bg-color);
     transform: rotate(45deg);
   }
-  .skills .box-container .box .image .content h3 i{
-    font-size: 2rem;
-  }
-  .skills-column2 .skills{
-    margin-bottom: 2rem;
-  }
+  
   .skills-column2 .box-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-    gap: 5rem;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 2.5rem;
     
   }
   .skills-column2 .box-container .box .image{
-    height: 15rem;
+    height: 10rem;
     width: 10rem;
     overflow: hidden;
     position: relative;
@@ -306,7 +301,7 @@ body{
   .skills-column2 .box-container .box .image .content h3 i {
     text-align: center;
     position: relative;
-    left: 3rem;
+    left: 1rem;
     font-size: 3.5rem;
   }
   

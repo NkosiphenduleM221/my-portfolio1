@@ -1,5 +1,5 @@
 <template>
-  <div class="about" id="about">
+  <section class="about" id="about">
         
         <div class="about-img">
             <img :src="imagePath" alt="Description of the image">
@@ -13,7 +13,7 @@
             <br>
             Eager to contribute, collaborate, and make my mark, I'm excited about the opportunities that lie ahead in creating meaningful digital solutions. Join me as I embrace challenges, embrace growth, and pave my way in the dynamic realm of FullStack development.</p> 
         </div>
-  </div>  
+    </section>  
     
   </template>
   
@@ -66,12 +66,12 @@ body{
 
   .about-img {
     position: relative;
-    width: 40rem;
-    height: 40rem;
+    width: 20rem;
+    height: 20rem;
     border-radius: 50%;
     display: flex;
     justify-content: center;
-    top: 5rem;
+    top: 2.5rem;
     align-items: center;
     overflow: hidden; /* Ensure image doesn't overflow */
 }
@@ -116,15 +116,15 @@ body{
 
 .about-content{
     
-    width: 50rem;
+    width: 40rem;
 }
 .about-content h3{
-    margin-top: 3rem;
-    font-size: 3.5rem;
+    margin-top: 2rem;
+    font-size: 2.5rem;
     color: var(--main-color);
 }
 .about-content p{
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     color: var(--text-color);
     margin: 2rem 0 3rem;
 }

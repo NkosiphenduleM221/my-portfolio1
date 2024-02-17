@@ -1,5 +1,5 @@
 <template>
-    <div class="education" id="education">
+    <section class="education" id="education">
         <h2 class="heading">My <span>Journey</span></h2>
 
         <div class="education-row">
@@ -51,7 +51,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 <script>
     export default {
@@ -93,7 +93,7 @@ body{
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    padding-bottom: 5rem;
+    padding: 2.5rem;
     background-color: var(--bg-color);
     color: var(--text-color);
 }
@@ -106,13 +106,13 @@ body{
 
 .education-row .education-column,
 .education-row .experience-column {
-    flex: 50rem 50rem; 
-    max-width: 50rem; 
+    flex: 40rem 40rem; 
+    max-width: 40rem; 
 }
 
 .education-column .title,
 .experience-column .title {
-    font-size: 3rem;
+    font-size: 2rem;
     margin: 0 0 1.5rem 2rem;
 }
 
@@ -126,13 +126,13 @@ body{
     position: relative;
 }
 .education-column .education-content:nth-child(2){
-    margin-top: 15rem;
+    margin-top: 10rem;
 }
 .experience-column .education-content:nth-child(1){
-    margin-top: 15rem;
+    margin-top: 10rem;
 }
 .experience-column .education-content:nth-child(2){
-    margin-top: 15rem;
+    margin-top: 10rem;
 } 
 
 .education-box .education-content {
@@ -179,7 +179,7 @@ body{
     width: 100%;
 }
 .education-content .content .year{
-    font-size: 1.9rem;
+    font-size: 1.3rem;
     color: var(--main-color);
     padding-bottom: .5rem;
 }
@@ -187,10 +187,10 @@ body{
     padding-right: .7rem;
 }
 .education-content .content h3{
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 .heading {
-    font-size: 3.6rem;
+    font-size: 3.2rem;
 }
 .heading span{
     color: var(--main-color);

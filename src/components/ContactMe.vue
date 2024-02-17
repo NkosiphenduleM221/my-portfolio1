@@ -1,5 +1,5 @@
 <template>
-    <div class="contact show-animate" id="contact">
+    <section class="contact" id="contact">
         <div class="container">
             <span class="big-circle"></span>
             <img src="img/shape.png" class="square" alt="" />
@@ -49,33 +49,34 @@
               
                     <!-- Full name -->
                     <div class="input-container">
-                      <input type="text" id="name" name="name" class="input" required />
+                      <input type="text" id="name" name="name" class="input"/>
                       <label for="name">Full name</label>
-                      <div class="error-message" ></div>
+                      <div class="error">{{ errors.name }}</div>
                     </div>
               
                     <!-- Email -->
                     <div class="input-container">
-                      <input type="email" id="email" name="email" class="input" required />
+                      <input type="email" id="email" name="email" class="input"/>
                       <label for="email">Email</label>
-                      <div class="error-message" ></div>
+                      <div class="error" >{{ errors.email }}</div>
                     </div>
               
                     <!-- Phone -->
                     <div class="input-container">
-                      <input type="text" id="subject" name="subject" class="input" required />
+                      <input type="text" id="subject" name="subject" class="input" />
                       <label for="subject">Subject</label>
-                      <div class="error-message" ></div>
+                      <div class="error" >{{ errors.subject }}</div>
                     </div>
               
                     <!-- Message -->
                     <div class="input-container textarea">
-                      <textarea id="message" name="message" class="input" required></textarea>
+                      <textarea id="message" name="message" class="input"></textarea>
                       <label for="message">Message</label>
-                      <div class="error-message" ></div>
+                      <div class="error" >{{ errors.message }}</div>
                     </div>
               
-                    <button type="submit" class="btnc">Send</button>
+                    <button type="submit" class="btnc" @click="submitForm">Send</button>
+
                   </form>
                 </div>
                 
@@ -91,13 +92,75 @@
             <a href="#home"><i class='bx bxs-to-top'></i></a>
         </div>
     </footer>
-    </div>
+    </section>
     
 </template>
 <script>
 export default {
-   
-  }
+    data() {
+        return {
+            formData: {
+                name: '',
+                email: '',
+                subject: '',
+                message: ''
+            },
+            errors: {}
+        };
+    },
+    methods: {
+      submitForm() {
+        this.errors = {}; // Clear previous errors
+
+        if (this.validateForm()) {
+           // Form is valid, proceed with submission
+           alert('Form submitted successfully');
+           // You can perform additional actions here, like making an API request to send the form data
+
+           // Reset the form data after submission
+           this.formData = {
+               name: '',
+               email: '',
+               subject: '',
+               message: ''
+            };
+         }
+       },
+
+        validateForm() {
+            let isValid = true;
+
+            if (!this.formData.name.trim()) {
+                this.errors.name = 'Name is required';
+                isValid = false;
+            }
+
+            if (!this.formData.email.trim()) {
+                this.errors.email = 'Email is required';
+                isValid = false;
+            } else if (!this.isValidEmail(this.formData.email)) {
+                this.errors.email = 'Invalid email format';
+                isValid = false;
+            }
+
+            if (!this.formData.subject.trim()) {
+                this.errors.subject = 'Subject is required';
+                isValid = false;
+            }
+
+            if (!this.formData.message.trim()) {
+                this.errors.message = 'Message is required';
+                isValid = false;
+            }
+
+            return isValid;
+        },
+        isValidEmail(email) {
+            const re = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.(com|co\.za|ac\.za|org\.za)$/i;
+            return re.test(String(email).toLowerCase());
+        }
+    }
+}
 </script>
 <style>
 @import url('https://fonts.goodleapis.com/css2?family=Popins:wght300;400;500;600;600;700;800;900&display=swap');
@@ -142,7 +205,7 @@ body{
 
 .form {
   width: 100%;
-  max-width: 820px;
+  max-width: 920px;
   background-color: var(--bg-color);
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
   z-index: 1000;
@@ -189,7 +252,7 @@ body{
 
 form {
   padding: 2.3rem 2.2rem;
-  z-index: 10;
+  z-index: 1;
   overflow: hidden;
   position: relative;
 }
@@ -198,8 +261,8 @@ form {
   color: var(--text-color);
   font-weight: 500;
   font-size: 1.5rem;
-  line-height: 1;
-  margin-bottom: 0.7rem;
+  line-height: 2;
+  margin-bottom: 1.2rem;
 }
 
 .input-container {
@@ -217,22 +280,20 @@ form {
   font-weight: 500;
   font-size: 0.95rem;
   letter-spacing: 0.5px;
-  border-radius: 25px;
   transition: 0.3s;
 }
 
 textarea.input {
   padding: 0.8rem 1.2rem;
-  min-height: 150px;
-  border-radius: 22px;
+  min-height: 140px;
   resize: none;
   overflow-y: auto;
 }
 
 .input-container label {
   position: absolute;
-  top: 50%;
-  left: 1rem;
+  top: -.5rem;
+  left: -1rem;
   transform: translateY(-50%);
   padding: 0 0.4rem;
   color: var(--text-color);
@@ -244,7 +305,7 @@ textarea.input {
 }
 
 .input-container.textarea label {
-  top: 1rem;
+  top: -1rem;
   transform: translateY(0);
 }
 
@@ -255,7 +316,6 @@ textarea.input {
   font-size: 0.95rem;
   color: var(--text-color);
   line-height: 1;
-  border-radius: 25px;
   outline: none;
   cursor: pointer;
   transition: 0.3s;
@@ -278,7 +338,11 @@ textarea.input {
   pointer-events: none;
   z-index: 500;
 }
-
+.error {
+    font-size: .6rem;
+    color: red;
+    margin-top: 10px;
+  }
 .input-container span:before,
 .input-container span:after {
   content: "";
@@ -387,8 +451,8 @@ textarea.input {
   height: 500px;
   border-radius: 50%;
   background: linear-gradient(to bottom, var(--main-color), var(--main-color));
-  bottom: 50%;
-  right: 50%;
+  bottom: 10%;
+  right: 65%;
   transform: translate(-40%, 38%);
 }
 
@@ -506,7 +570,7 @@ textarea.input {
     background: var(--bg-color);
 }
 .footer-text p{
-    font-size: 1.6rem;
+    font-size: 1.2rem;
 }
 .footer-iconTop a{
     position: relative;
@@ -535,7 +599,7 @@ textarea.input {
     width: 100%;
 }
 .footer-iconTop a i {
-    font-size: 2.4rem;
+    font-size: 2rem;
     color: var(--bg-color);
     transition: .5s;
 }

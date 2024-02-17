@@ -5,7 +5,7 @@
             <div class="box">
                 <div class="image">
                   <h2>Company Website</h2>
-                  <img src="cwImage" alt="">
+                  <img :src="cwImage" alt="">
                 </div>
                     <div class="content">
                       <p>This project is a website development it showcases various technologies such as HTML, CSS, JavaScript, React.Js and Node.Js used in the development process.</p>
@@ -16,7 +16,7 @@
             <div class="box">
                 <div class="image app">
                   <h2>Banking App</h2>
-                  <img src="baImage" alt="" >
+                  <img :src="baImage" alt="" >
                 </div>
                     <div class="content">
                       
@@ -29,7 +29,7 @@
             <div class="box">
                 <div class="image">
                   <h2>Metric Converter</h2>
-                  <img src="mcImage" alt="">
+                  <img :src="mcImage" alt="">
                 </div>
                     <div class="content">
                       
@@ -42,7 +42,7 @@
             <div class="box">
                 <div class="image">
                   <h2>Financial Calculator</h2>
-                  <img src="fcImage" alt=""> 
+                  <img :src="fcImage" alt=""> 
                 </div>
                     <div class="content">
                    
@@ -54,7 +54,7 @@
             <div class="box">
               <div class="image">
                 <h2>Tax Calculator</h2>
-                <img src="tcImage" alt=""> 
+                <img :src="tcImage" alt=""> 
               </div>  
                   <div class="content">
                       
@@ -71,12 +71,11 @@
 export default {
   data() {
     return {
-      cwImage: require('@/assets/company-website.png'),
-baImage: require('@/assets/Bank App.png'),
-mcImage: require('@/assets/MetricConverter.png'),
-fcImage: require('@/assets/Financial_Calculator.png'),
-tcImage: require('@/assets/Tax Calculator.png')
-
+      cwImage: require('@/assets/projects/company-website.png'),
+      baImage: require('@/assets/projects/Bank App.png'),
+      mcImage: require('@/assets/projects/MetricConverter.png'),
+      fcImage: require('@/assets/projects/Financial_Calculator.png'),
+      tcImage: require('@/assets/projects/Tax Calculator.png')
     }
   }
 }
@@ -120,23 +119,23 @@ body{
   }
 
   .portfolio .box-container .box .image {
-    height: 25rem;
-    width: 25rem;
+    height: 20rem;
+    width: 18rem;
     overflow: hidden;
     position: relative;
   }
   .portfolio .box-container .box .image img{
-    height: 15rem;
-    width: 22rem;
+    height: 10rem;
+    width: 15rem;
   }
   .portfolio .box-container .box{
-    height: 75rem;
+    height: 55rem;
   }
   
   .portfolio .box-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 2rem;
   }
   .portfolio .box-container .box {
     background-color: var(--second-bg-color);
@@ -146,20 +145,20 @@ body{
   
   
   .portfolio .box-container .box .image h2 {
-    font-size: 2.9rem;
+    font-size: 2rem;
     color: var(--main-color);
     letter-spacing: 0.1rem;
     text-transform: uppercase;
   }
   
   .portfolio .box-container .box .content  p {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     color: var(--text-color);
     letter-spacing: 0.1rem;
   }
   
 .portfolio .box-container .box .content {
-  width: 25rem;
+  width: 15rem;
 }
 .portfolio .box-container .box .btn{
   position: relative;
@@ -170,7 +169,7 @@ body{
   color: var(--bg-color);
   text-align: center;
   top: 5rem;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   padding: .1rem;
   border-radius: 10%;
   border: solid .1rem var(--contact-color);
@@ -181,7 +180,7 @@ body{
 }
 .portfolio .box-container .box .b {
   position: relative;
-  top: 8rem;
+  top: 9.5rem;
 }
 .portfolio .box-container .box .c{
   position: relative;
@@ -196,6 +195,6 @@ body{
 }
 .portfolio .box-container .box .app{
   position: relative;
-  top: 3.9rem;
+  top: 3.2rem;
 }
 </style>

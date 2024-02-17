@@ -39,10 +39,49 @@
   </template>
   
   <script>
-  export default {
-    name : "NavBar",
-  }
-  </script>
+export default {
+    name: "NavBar",
+    mounted() {
+        let menuIcon = document.querySelector('#menu-icon');
+        let navBar = document.querySelector('.navbar');
+
+        menuIcon.addEventListener('click', () => {
+            menuIcon.classList.toggle('bx-x');
+            navBar.classList.toggle('active');
+        });
+
+        let sections = document.querySelectorAll('section');
+        let navLinks = document.querySelectorAll('header nav a');
+
+        window.onscroll = () => {
+            let top = window.scrollY;
+
+            sections.forEach(sec => {
+                let offset = sec.offsetTop - 100;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach(links => {
+                        links.classList.remove('active');
+                    });
+                    document.querySelector('header nav a[href*="' + id + '"]').classList.add('active');
+                    sec.classList.add('show-animate');
+                } else {
+                    sec.classList.remove('show-animate');
+                }
+            });
+
+            let header = document.querySelector('header');
+            header.classList.toggle('sticky', top > 100);
+
+            menuIcon.classList.remove('bx-x');
+            navBar.classList.remove('active');
+        };
+    }
+}
+</script>
+
   <style>
 @import url('https://fonts.goodleapis.com/css2?family=Popins:wght300;400;500;600;600;700;800;900&display=swap');
 @import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
@@ -97,7 +136,7 @@ body{
 
 .logo{
     position: relative;
-    font-size: 3rem;
+    font-size: 2rem;
     color: var(--text-color);
     font-weight: 600;
 }
@@ -105,7 +144,7 @@ body{
     position: relative;
 }
 .navbar a{
-   font-size: 2.5rem;
+   font-size: 1.5rem;
    color: var(--text-color);
    font-weight: 500;
    margin-left: 3.5rem;
@@ -117,7 +156,7 @@ body{
 }
 #menu-icon{
     position: relative;
-    font-size: 3.2rem;
+    font-size: 3rem;
     color: var(--text-color);
     cursor: pointer;
     display: none;
@@ -138,13 +177,13 @@ body{
 .home-content {
     text-align: center; /* Aligns the text content to the center */
     position: relative;
-    width: 60rem;
+    width: 50rem;
     margin: 0 auto;
     margin-top: 2rem; /* Add margin to separate from the header */
 }
 
 .text-animate h3 {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
     color: transparent;
     -webkit-text-stroke: .7px var(--main-color);
@@ -184,7 +223,7 @@ body{
 
 .home-content p {
     text-align: center;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     color: var(--text-color);
     margin-bottom: 2rem; /* Adjust margin as needed */
 }
@@ -246,19 +285,19 @@ body{
 
 .home-sci{
     position: absolute;
-    bottom: 4rem;
-    width: 15rem;
+    bottom: 2rem;
+    width: 12rem;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 300px;
+    margin-bottom: 250px;
 }
 .home-sci a{
     position: relative;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 5rem;
-    height: 5rem;
+    width: 3rem;
+    height: 3rem;
     background: transparent;
     border-radius: 50%;
     font-size: 2rem;
@@ -287,7 +326,7 @@ body{
     width: 100%;
 }
 .home-sci a i {
-    font-size: 4rem;
+    font-size: 2.5rem;
     color: var(--main-color);
     transition: .5s;
 }
@@ -297,5 +336,114 @@ body{
 .home-sci a:hover:before{
     width: 100%;
 }
+@media (max-width: 1200px) {
+    html {
+         font-size: 55%;
+    }
+}
+@media (max-width: 991px) {
+    .header{
+        padding: 2rem 4%;
+    }
+
+    section {
+        padding: 10rem 4% 2rem;
+    }
+    .home {
+        padding: 0 4%;
+    }
+    .footer{
+        padding: 2rem 4%;
+    }
+}
+@media (max-width: 768px) {
+    .header {
+        padding: 2rem 4%;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+        padding: 1rem 4%;
+        background: var(--bg-color);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        z-index: 1;
+        transition: left 0.25s ease, opacity 0.25s ease;
+        opacity: 0;
+    }
+
+    .navbar.active {
+        left: 0;
+        opacity: 1;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        transform: translateX(-20rem);
+        transition: .25s ease;
+        transition-delay: 0;
+    }
+
+    .navbar.active a {
+        transform: translateX(0);
+        transition-delay: .25s;
+    }
+    .home-content{
+        max-width: fit-content;
+    }
+    
+    .logo {
+        font-size: 100%;
+    }
+    .home .btn-box{
+        width: 200px;
+        margin-left: 70px;
+        
+
+    }
+    .home .btn-box i {
+        font-size: 100%;
+    }
+    .home-sci a {
+        top: 100px;
+    }
+    .home-content .text-animate h3{
+        font-size: 1.4rem;
+    }
+    .home-content .text-animate p{
+        font-size: .5rem;
+    }
+
+}
+
+@media (max-width: 520px) {
+    html {
+        font-size: 50%;
+    }
+
+    .home-sci {
+        width: 160px;
+    }
+
+    .home-sci a {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+@media (max-width: 371px) {
+    .home-content h1 {
+        font-size: 5rem;
+    }
+}
+
 
 </style>
