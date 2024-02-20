@@ -275,7 +275,7 @@ form {
   outline: none;
   border: 2px solid var(--text-color);
   background: none;
-  padding: 0.6rem 1.2rem;
+  padding: 0.6rem 1.2rem; 
   color: #fff;
   font-weight: 500;
   font-size: 0.95rem;
