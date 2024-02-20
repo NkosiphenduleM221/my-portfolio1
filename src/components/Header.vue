@@ -421,6 +421,7 @@ body{
     .home-content .text-animate p{
         font-size: .5rem;
     }
+    
 
 }
 
