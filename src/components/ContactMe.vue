@@ -49,28 +49,28 @@
               
                     <!-- Full name -->
                     <div class="input-container">
-                      <input type="text" id="name" name="name" class="input"/>
+                      <input type="text" id="name" v-model= "formData.name" name="name" class="input"/>
                       <label for="name">Full name</label>
                       <div class="error">{{ errors.name }}</div>
                     </div>
               
                     <!-- Email -->
                     <div class="input-container">
-                      <input type="email" id="email" name="email" class="input"/>
+                      <input type="email" id="email" v-model="formData.email" name="email" class="input"/>
                       <label for="email">Email</label>
                       <div class="error" >{{ errors.email }}</div>
                     </div>
               
                     <!-- Phone -->
                     <div class="input-container">
-                      <input type="text" id="subject" name="subject" class="input" />
+                      <input type="text" id="subject" v-model="formData.subject" name="subject" class="input" />
                       <label for="subject">Subject</label>
                       <div class="error" >{{ errors.subject }}</div>
                     </div>
               
                     <!-- Message -->
                     <div class="input-container textarea">
-                      <textarea id="message" name="message" class="input"></textarea>
+                      <textarea id="message" v-model="formData.message" name="message" class="input"></textarea>
                       <label for="message">Message</label>
                       <div class="error" >{{ errors.message }}</div>
                     </div>
@@ -109,8 +109,9 @@ export default {
         };
     },
     methods: {
-      submitForm() {
+      submitForm(event) {
         this.errors = {}; // Clear previous errors
+        event.preventDefault();
 
         if (this.validateForm()) {
            // Form is valid, proceed with submission
@@ -156,7 +157,7 @@ export default {
             return isValid;
         },
         isValidEmail(email) {
-            const re = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.(com|co\.za|ac\.za|org\.za)$/i;
+            const re =/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
             return re.test(String(email).toLowerCase());
         }
     }

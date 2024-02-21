@@ -123,9 +123,34 @@ body{
     font-size: 2.5rem;
     color: var(--main-color);
 }
-.about-content p{
-    font-size: 1.3rem;
-    color: var(--text-color);
-    margin: 2rem 0 3rem;
+
+.about-content p {
+    font-size: 1.3rem; /* Initial font size */
+    opacity: 0; /* Initially hidden */
+    animation: animateParagraph 5s ease-out 5s forwards;
 }
+
+@keyframes animateName {
+    0% {
+        opacity: 0;
+        transform: scale(0.5); /* Initial scale */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* Normal scale */
+    }
+}
+
+@keyframes animateParagraph {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px); /* Move up */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Normal position */
+    }
+}
+
+
   </style>

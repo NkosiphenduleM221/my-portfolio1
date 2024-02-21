@@ -97,7 +97,7 @@ export default {
 }
 :root{
     --bg-color: #01214ae7; 
-    --second-bg-color: #112e42;
+    --second-bg-color: #0b171f;
     --text-color: #ededed;
     --main-color: #00abf0;
     --contact-color: #0047ab;
@@ -169,7 +169,15 @@ body{
     height: 100vh;
     background-color: var(--bg-color);
     color: var(--text-color);
+    animation: changeBackgroundColor 5s infinite alternate; 
 }
+@keyframes changeBackgroundColor {
+            0% { background-color: var(--bg-color); }
+            75% {background-color: var(--second-bg-color,var(--bg-color));}
+            50% { background-color: var(--bg-color); } 
+            75% { background-color: var(--second-bg-color,var(--bg-color)); }
+            100%{ background-color: var(--bg-color);}
+        }
 
 
 
@@ -355,6 +363,18 @@ body{
     .footer{
         padding: 2rem 4%;
     }
+    #education {
+    height: fit-content;
+    }
+    .skill-column1{
+        max-width: 991px;
+    }
+    .skills .skill-column1 .box-container {
+        display: grid;
+    }
+    .portfolio .box-container {
+        width: fit-content;
+    }
 }
 @media (max-width: 768px) {
     .header {
@@ -363,6 +383,8 @@ body{
 
     #menu-icon {
         display: block;
+        font-size: 3rem;
+        color: #ededed;
     }
 
     .navbar {
@@ -405,7 +427,7 @@ body{
     }
     .home .btn-box{
         width: 200px;
-        margin-left: 70px;
+        margin-left: 250px;
         
 
     }
@@ -416,7 +438,7 @@ body{
         top: 100px;
     }
     .home-content .text-animate h3{
-        font-size: 1.4rem;
+        font-size: 1.9rem;
     }
     .home-content .text-animate p{
         font-size: .5rem;
@@ -438,12 +460,62 @@ body{
         width: 38px;
         height: 38px;
     }
+    .home .btn-box{
+        width: 200px;
+        margin-left: 150px;
+        
+
+    }
+    #about {
+        width: fit-content;
+    }
+    .about-content{
+        width: auto;
+    }
+    #education .title{
+        font-size: 100%;
+    }
+    #education h2{
+        font-size: 100%;
+    }
+    #education h3 {
+        font-size: 100%;
+    }
+    .education-column .education-box .education-content::before{
+        left: 80%;
+    }
 }
 
 @media (max-width: 371px) {
     .home-content h1 {
         font-size: 5rem;
     }
+    .about-content h3 {
+        font-size: 100%;
+    }
+    .about-content p {
+        font-size: 100%;
+    }
+    .portfolio .box-container{
+        right: 3rem;
+    }
+    .portfolio .box-container .box{
+        width: fit-content;
+
+    }
+    .home .btn-box{
+        width: 200px;
+        margin-left: 70px;
+        
+
+    }
+    .home .text-animate{
+        font-size: 100%;
+    }
+    .home p{
+        font-size: 150%;
+    }
+
 }
 
 

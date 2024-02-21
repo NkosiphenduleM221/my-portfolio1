@@ -1,6 +1,6 @@
 <template>
     <section class="portfolio" id="portfolio">
-        <h1 class="heading">My <span>Project</span></h1>
+        <h1 class="heading">My <span>Work</span></h1>
         <div class="box-container">
             <div class="box">
                 <div class="image">
