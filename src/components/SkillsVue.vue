@@ -255,8 +255,8 @@ body{
     margin-top: 1rem;
   }
   .pie-chart {
-    width: 100px; /* Adjust the width of the pie chart */
-    height: 100px; /* Adjust the height of the pie chart */
+    width: 100px;
+    height: 100px; 
     position: relative;
     border-radius: 50%;
     overflow: hidden;
@@ -268,17 +268,17 @@ body{
     margin-right: 2rem;
     width: 100%;
     height: 100%;
-    clip: rect(0, 50px, 100px, 0); /* Adjust clip for each slice */
+    clip: rect(0, 50px, 100px, 0); 
   }
   
   .slice1 {
-    background-color: var(--second-bg-color); /* Color for slice 1 */
-    transform: rotate(0deg); /* Rotate slice 1 to start from 0 degrees */
+    background-color: var(--second-bg-color); 
+    transform: rotate(0deg); 
   }
   
   .slice2 {
-    background-color: var(--main-color); /* Color for slice 2 */
-    transform: rotate(180deg); /* Rotate slice 2 to start from 0 degrees */
+    background-color: var(--main-color); 
+    transform: rotate(180deg); 
   }
   .slice3 {
     background-color: var(--second-bg-color);

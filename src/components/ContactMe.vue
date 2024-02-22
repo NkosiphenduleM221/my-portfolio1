@@ -96,73 +96,89 @@
     
 </template>
 <script>
+import emailjs from 'emailjs-com';
+
+emailjs.init('Pjy5Hblz6FWyfQWfe');
+
 export default {
-    data() {
-        return {
-            formData: {
-                name: '',
-                email: '',
-                subject: '',
-                message: ''
-            },
-            errors: {}
+  data() {
+    return {
+      formData: {
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      },
+      errors: {}
+    };
+  },
+  methods: {
+    submitForm(event) {
+  this.errors = {};
+  event.preventDefault();
+
+  if (this.validateForm()) {
+    const templateParams = {
+      name: this.formData.name,
+      email: this.formData.email,
+      subject: this.formData.subject,
+      message: this.formData.message
+    };
+
+    emailjs.send('service_3hdfnz4', 'template_bkc8qz8', templateParams)
+      .then((response) => {
+        console.log('Email sent successfully:', response);
+        alert('Form submitted successfully');
+
+        this.formData = {
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
         };
+      }, (error) => {
+        console.error('Email sending failed:', error);
+        alert('Error submitting form');
+      });
+  }
+},
+
+    validateForm() {
+      let isValid = true;
+
+      if (!this.formData.name.trim()) {
+        this.errors.name = 'Name is required';
+        isValid = false;
+      }
+
+      if (!this.formData.email.trim()) {
+        this.errors.email = 'Email is required';
+        isValid = false;
+      } else if (!this.isValidEmail(this.formData.email)) {
+        this.errors.email = 'Invalid email format';
+        isValid = false;
+      }
+
+      if (!this.formData.subject.trim()) {
+        this.errors.subject = 'Subject is required';
+        isValid = false;
+      }
+
+      if (!this.formData.message.trim()) {
+        this.errors.message = 'Message is required';
+        isValid = false;
+      }
+
+      return isValid;
     },
-    methods: {
-      submitForm(event) {
-        this.errors = {}; // Clear previous errors
-        event.preventDefault();
-
-        if (this.validateForm()) {
-           // Form is valid, proceed with submission
-           alert('Form submitted successfully');
-           // You can perform additional actions here, like making an API request to send the form data
-
-           // Reset the form data after submission
-           this.formData = {
-               name: '',
-               email: '',
-               subject: '',
-               message: ''
-            };
-         }
-       },
-
-        validateForm() {
-            let isValid = true;
-
-            if (!this.formData.name.trim()) {
-                this.errors.name = 'Name is required';
-                isValid = false;
-            }
-
-            if (!this.formData.email.trim()) {
-                this.errors.email = 'Email is required';
-                isValid = false;
-            } else if (!this.isValidEmail(this.formData.email)) {
-                this.errors.email = 'Invalid email format';
-                isValid = false;
-            }
-
-            if (!this.formData.subject.trim()) {
-                this.errors.subject = 'Subject is required';
-                isValid = false;
-            }
-
-            if (!this.formData.message.trim()) {
-                this.errors.message = 'Message is required';
-                isValid = false;
-            }
-
-            return isValid;
-        },
-        isValidEmail(email) {
-            const re =/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-            return re.test(String(email).toLowerCase());
-        }
+    isValidEmail(email) {
+      const re = /^[\w-.]+@([\w-]+\.)+[\w-]{2,7}$/g;
+      return re.test(String(email).toLowerCase());
     }
+  }
 }
 </script>
+
 <style>
 @import url('https://fonts.goodleapis.com/css2?family=Popins:wght300;400;500;600;600;700;800;900&display=swap');
 @import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
@@ -209,7 +225,6 @@ body{
   max-width: 920px;
   background-color: var(--bg-color);
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
   overflow: hidden;
   display: grid;
   grid-template-columns: repeat(2, 1fr);

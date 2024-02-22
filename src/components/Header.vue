@@ -124,14 +124,14 @@ body{
     background-color: var(--bg-color);
 
 }
-/* styles.css */
+
 .sticky {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background: var(--bg-color);
-    /*Add other styles for your sticky header here*/ 
+    
 }
 
 .logo{
@@ -183,11 +183,11 @@ body{
 
 
 .home-content {
-    text-align: center; /* Aligns the text content to the center */
+    text-align: center; 
     position: relative;
     width: 50rem;
     margin: 0 auto;
-    margin-top: 2rem; /* Add margin to separate from the header */
+    margin-top: 2rem; 
 }
 
 .text-animate h3 {
@@ -233,14 +233,14 @@ body{
     text-align: center;
     font-size: 2.5rem;
     color: var(--text-color);
-    margin-bottom: 2rem; /* Adjust margin as needed */
+    margin-bottom: 2rem; 
 }
 
 .btn-box {
     position: relative;
     display: flex;
-    justify-content: center; /* Add space between buttons */
-    margin-top: 2rem; /* Adjust margin as needed */
+    justify-content: center;
+    margin-top: 2rem; 
 }
 
 .btn-box a {
@@ -249,7 +249,7 @@ body{
     justify-content: center;
     align-items: center;
     background: transparent;
-    font-size: 3rem; /* Increase font size */
+    font-size: 3rem; 
     color: var(--main-color);
     z-index: 1;
     overflow: hidden;
@@ -515,7 +515,9 @@ body{
     .home p{
         font-size: 150%;
     }
-
+    .popup {
+        right: 0;
+    }
 }
 
 

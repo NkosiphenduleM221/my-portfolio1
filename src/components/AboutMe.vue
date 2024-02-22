@@ -73,45 +73,45 @@ body{
     justify-content: center;
     top: 2.5rem;
     align-items: center;
-    overflow: hidden; /* Ensure image doesn't overflow */
+    overflow: hidden; 
 }
 
 .about-img img {
     position: absolute;
-    width: 100%; /* Start with full width */
+    width: 100%; 
     height: auto;
     border-radius: 40%;
-    transition: transform 0.5s ease; /* Smooth transition for zoom animation */
+    transition: transform 0.5s ease; 
 }
 
-/* Keyframe animation for zooming in */
+
 @keyframes zoomIn {
     from {
-        transform: scale(1); /* Start with normal size */
+        transform: scale(1); 
     }
     to {
-        transform: scale(1.2); /* Zoom in to 120% of original size */
+        transform: scale(1.2); 
     }
 }
 
-/* Keyframe animation for zooming out */
+
 @keyframes zoomOut {
     from {
-        transform: scale(1.2); /* Start with zoomed-in size */
+        transform: scale(1.2); 
     }
     to {
-        transform: scale(1); /* Zoom out to normal size */
+        transform: scale(1); 
     }
 }
 
-/* Apply zoom-in animation on hover */
+
 .about-img:hover img {
-    animation: zoomIn 0.5s forwards; /* Run zoomIn animation on hover */
+    animation: zoomIn 0.5s forwards; 
 }
 
-/* Apply zoom-out animation when not hovering */
+
 .about-img:not(:hover) img {
-    animation: zoomOut 0.5s forwards; /* Run zoomOut animation when not hovering */
+    animation: zoomOut 0.5s forwards; 
 }
 
 .about-content{
@@ -125,30 +125,30 @@ body{
 }
 
 .about-content p {
-    font-size: 1.3rem; /* Initial font size */
-    opacity: 0; /* Initially hidden */
+    font-size: 1.3rem; 
+    opacity: 0; 
     animation: animateParagraph 5s ease-out 5s forwards;
 }
 
 @keyframes animateName {
     0% {
         opacity: 0;
-        transform: scale(0.5); /* Initial scale */
+        transform: scale(0.5); 
     }
     100% {
         opacity: 1;
-        transform: scale(1); /* Normal scale */
+        transform: scale(1); 
     }
 }
 
 @keyframes animateParagraph {
     0% {
         opacity: 0;
-        transform: translateY(-20px); /* Move up */
+        transform: translateY(-20px); 
     }
     100% {
         opacity: 1;
-        transform: translateY(0); /* Normal position */
+        transform: translateY(0); 
     }
 }
 
