@@ -23,10 +23,11 @@
             </p>
 
             <div class="btn-box">
-                <a href="#" class="btn"><i class='bx bx-folder-open'></i></a>
-                <a href="#contact" class="btn"><i class='bx bxs-message-dots'></i></a>
-                
+               <a href="#contact" class="btn"><i class='bx bxs-message-dots'></i></a>
+              <a href="https://plum-veda-57.tiiny.site/" class="btn" target="_blank"><i class='bx bxs-file-pdf'></i></a>
             </div>
+
+
         </div>
         
         <div class="home-sci">
@@ -115,7 +116,7 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 2rem 9%;
+    padding: 32px 9%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -136,7 +137,7 @@ body{
 
 .logo{
     position: relative;
-    font-size: 2rem;
+    font-size: 32px;
     color: var(--text-color);
     font-weight: 600;
 }
@@ -144,10 +145,10 @@ body{
     position: relative;
 }
 .navbar a{
-   font-size: 1.5rem;
+   font-size: 24px;
    color: var(--text-color);
    font-weight: 500;
-   margin-left: 3.5rem;
+   margin-left: 56px;
    transition: .3s;
 }
 .navbar a:hover,
@@ -156,7 +157,7 @@ body{
 }
 #menu-icon{
     position: relative;
-    font-size: 3rem;
+    font-size: 48px;
     color: var(--text-color);
     cursor: pointer;
     display: none;
@@ -185,13 +186,13 @@ body{
 .home-content {
     text-align: center; 
     position: relative;
-    width: 50rem;
+    width: 800px;
     margin: 0 auto;
-    margin-top: 2rem; 
+    margin-top: 32px; 
 }
 
 .text-animate h3 {
-    font-size: 3rem;
+    font-size: 48px;
     font-weight: 700;
     color: transparent;
     -webkit-text-stroke: .7px var(--main-color);
@@ -231,16 +232,16 @@ body{
 
 .home-content p {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 56px;
     color: var(--text-color);
-    margin-bottom: 2rem; 
+    margin-bottom: 32px; 
 }
 
 .btn-box {
     position: relative;
     display: flex;
     justify-content: center;
-    margin-top: 2rem; 
+    margin-top: 32px; 
 }
 
 .btn-box a {
@@ -249,7 +250,7 @@ body{
     justify-content: center;
     align-items: center;
     background: transparent;
-    font-size: 3rem; 
+    font-size: 48px; 
     color: var(--main-color);
     z-index: 1;
     overflow: hidden;
@@ -278,7 +279,7 @@ body{
 }
 
 .btn-box a i {
-    font-size: 4.5rem;
+    font-size: 72px;
     color: var(--main-color);
     transition: .5s;
 }
@@ -293,8 +294,8 @@ body{
 
 .home-sci{
     position: absolute;
-    bottom: 2rem;
-    width: 12rem;
+    bottom: 8px;
+    width: 192px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 250px;
@@ -304,11 +305,11 @@ body{
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 3rem;
-    height: 3rem;
+    width: 48px;
+    height: 48px;
     background: transparent;
     border-radius: 50%;
-    font-size: 2rem;
+    font-size: 32px;
     color: var(--main-color);
     z-index: 1;
     overflow: hidden;
@@ -334,7 +335,7 @@ body{
     width: 100%;
 }
 .home-sci a i {
-    font-size: 2.5rem;
+    font-size: 40px;
     color: var(--main-color);
     transition: .5s;
 }
@@ -351,17 +352,17 @@ body{
 }
 @media (max-width: 991px) {
     .header{
-        padding: 2rem 4%;
+        padding: 32px 4%;
     }
 
     section {
-        padding: 10rem 4% 2rem;
+        padding: 160px 4% 32px;
     }
     .home {
         padding: 0 4%;
     }
     .footer{
-        padding: 2rem 4%;
+        padding: 32px 4%;
     }
     #education {
     height: fit-content;
@@ -378,12 +379,12 @@ body{
 }
 @media (max-width: 768px) {
     .header {
-        padding: 2rem 4%;
+        padding: 32px 4%;
     }
 
     #menu-icon {
         display: block;
-        font-size: 3rem;
+        font-size: 38px;
         color: #ededed;
     }
 
@@ -392,9 +393,9 @@ body{
         top: 100%;
         left: -100%;
         width: 100%;
-        padding: 1rem 4%;
+        padding: 16px 4%;
         background: var(--bg-color);
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, .2);
         z-index: 1;
         transition: left 0.25s ease, opacity 0.25s ease;
         opacity: 0;
@@ -407,8 +408,8 @@ body{
 
     .navbar a {
         display: block;
-        font-size: 2rem;
-        margin: 3rem 0;
+        font-size: 32px;
+        margin: 48px 0;
         transform: translateX(-20rem);
         transition: .25s ease;
         transition-delay: 0;
@@ -438,10 +439,10 @@ body{
         top: 100px;
     }
     .home-content .text-animate h3{
-        font-size: 1.9rem;
+        font-size: 30.4px;
     }
     .home-content .text-animate p{
-        font-size: .5rem;
+        font-size: 8px;
     }
     
 
@@ -460,35 +461,42 @@ body{
         width: 38px;
         height: 38px;
     }
-    .home .btn-box{
+    
+    .home .btn-box {
         width: 200px;
         margin-left: 150px;
-        
-
     }
+
     #about {
         width: fit-content;
     }
-    .about-content{
+
+    .about-content {
         width: auto;
     }
-    #education .title{
+
+    #education .title {
         font-size: 100%;
     }
-    #education h2{
+
+    #education h2 {
         font-size: 100%;
     }
+
     #education h3 {
         font-size: 100%;
     }
-    .education-column .education-box .education-content::before{
-        left: 80%;
+
+    .education-column .education-box {
+        border-left: .2rem solid var(--main-color);
+        border-right: none; /* Remove the right border */
     }
 }
 
+
 @media (max-width: 371px) {
     .home-content h1 {
-        font-size: 5rem;
+        font-size: 80px;
     }
     .about-content h3 {
         font-size: 100%;
@@ -497,7 +505,7 @@ body{
         font-size: 100%;
     }
     .portfolio .box-container{
-        right: 3rem;
+        right: 48px;
     }
     .portfolio .box-container .box{
         width: fit-content;

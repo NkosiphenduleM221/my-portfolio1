@@ -93,7 +93,7 @@ body{
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    padding: 2.5rem;
+    padding: 40px;
     background-color: var(--bg-color);
     color: var(--text-color);
 }
@@ -106,14 +106,14 @@ body{
 
 .education-row .education-column,
 .education-row .experience-column {
-    flex: 40rem 40rem; 
-    max-width: 40rem; 
+    flex: 640px 640px; 
+    max-width: 640px; 
 }
 
 .education-column .title,
 .experience-column .title {
-    font-size: 2rem;
-    margin: 0 0 1.5rem 2rem;
+    font-size: 32px;
+    margin: 0 0 24px 32px;
 }
 
 .education-column .education-box {
@@ -126,26 +126,26 @@ body{
     position: relative;
 }
 .education-column .education-content:nth-child(2){
-    margin-top: 10rem;
+    margin-top: 160px;
 }
 .experience-column .education-content:nth-child(1){
-    margin-top: 10rem;
+    margin-top: 160px;
 }
 .experience-column .education-content:nth-child(2){
-    margin-top: 10rem;
+    margin-top: 160px;
 } 
 
 .education-box .education-content {
     position: relative;
-    padding-left: 2rem;
+    padding-left: 32px;
 }
 .education-box .education-content::before{
     content: "";
     position: absolute;
     top: 0;
-    left: -1.1rem;
-    width: 2rem;
-    height: 2rem;
+    left: -17.6px;
+    width: 32px;
+    height: 32px;
     background: var(--main-color);
     border-radius: 50%;
 }
@@ -154,15 +154,15 @@ body{
     position: absolute;
     top: 0;
     left: 98%;
-    width: 2rem;
-    height: 2rem;
+    width: 32px;
+    height: 32px;
     background: var(--main-color);
     border-radius: 50%;
 }
 .education-content .content {
     position: relative;
-    padding: 1.5rem;
-    margin-bottom: 3rem;
+    padding: 24px;
+    margin-bottom: 48px;
     overflow: hidden;
 }
 .education-content .content::before{
@@ -175,25 +175,46 @@ body{
     background: var(--bg-color);
     z-index: -1;
 }
+
+
 .education-content .content:hover:before{
     width: 100%;
 }
 .education-content .content .year{
-    font-size: 1.3rem;
+    font-size: 20.8px;
     color: var(--main-color);
-    padding-bottom: .5rem;
+    padding-bottom: 8px;
 }
 .education-content .content .year i{
-    padding-right: .7rem;
+    padding-right: 11.2px;
 }
 .education-content .content h3{
-    font-size: 2rem;
+    font-size: 32px;
 }
 .heading {
-    font-size: 3.2rem;
+    font-size: 51.2px;
 }
 .heading span{
     color: var(--main-color);
+}
+@media (max-width: 768px) {
+    .education-column .education-box {
+        border-right: none; /* Remove the border on the right */
+        border-left: .2rem solid var(--main-color); /* Add border on the left */
+    }
+    .education-column .education-box .education-content::before{
+        left: -17.6px;
+    }
+}
+
+@media (min-width: 769px) {
+    .education-column .education-box {
+        border-left: none; /* Remove the border on the left */
+        border-right: .2rem solid var(--main-color); /* Add border on the right */
+    }
+    .education-column .education-box .education-content::before{
+        left: 98%px;
+    }
 }
 
 </style>

@@ -74,9 +74,9 @@
                       <label for="message">Message</label>
                       <div class="error" >{{ errors.message }}</div>
                     </div>
-              
+                    <div class="g-recaptcha" :data-sitekey="rcapt_sig_key">
                     <button type="submit" class="btnc" @click="submitForm">Send</button>
-
+                  </div>
                   </form>
                 </div>
                 
@@ -96,7 +96,9 @@
     
 </template>
 <script>
+/* global grecaptcha */
 import emailjs from 'emailjs-com';
+
 
 emailjs.init('Pjy5Hblz6FWyfQWfe');
 
@@ -109,7 +111,8 @@ export default {
         subject: '',
         message: ''
       },
-      errors: {}
+      errors: {},
+      
     };
   },
   methods: {
@@ -117,31 +120,46 @@ export default {
   this.errors = {};
   event.preventDefault();
 
-  if (this.validateForm()) {
-    const templateParams = {
-      name: this.formData.name,
-      email: this.formData.email,
-      subject: this.formData.subject,
-      message: this.formData.message
-    };
+  grecaptcha.ready(() => {
+    grecaptcha.execute('6Lf86XspAAAAABPcljUYt_L42Ng3TInsd7s5K_Jy', { action: 'submit' }).then((recaptchaResponse) => {
+      if (!recaptchaResponse) {
+        alert('reCAPTCHA verification failed');
+        return;
+      }
 
-    emailjs.send('service_3hdfnz4', 'template_bkc8qz8', templateParams)
-      .then((response) => {
-        console.log('Email sent successfully:', response);
-        alert('Form submitted successfully');
-
-        this.formData = {
-          name: '',
-          email: '',
-          subject: '',
-          message: ''
+      // Perform form validation
+      if (this.validateForm()) {
+        // If form validation passes, proceed with form submission
+        const templateParams = {
+          name: this.formData.name,
+          email: this.formData.email,
+          subject: this.formData.subject,
+          message: this.formData.message,
+          recaptchaResponse: recaptchaResponse // Add reCAPTCHA response to template params
         };
-      }, (error) => {
-        console.error('Email sending failed:', error);
-        alert('Error submitting form');
-      });
-  }
+
+        emailjs.send('service_3hdfnz4', 'template_bkc8qz8', templateParams)
+          .then((response) => {
+            console.log('Email sent successfully:', response);
+            alert('Form submitted successfully');
+
+            // Clear form fields after successful submission
+            this.formData = {
+              name: '',
+              email: '',
+              subject: '',
+              message: ''
+            };
+          })
+          .catch((error) => {
+            console.error('Email sending failed:', error);
+            alert('Error submitting form');
+          });
+      }
+    });
+  });
 },
+
 
     validateForm() {
       let isValid = true;
@@ -171,13 +189,23 @@ export default {
 
       return isValid;
     },
+
     isValidEmail(email) {
-      const re = /^[\w-.]+@([\w-]+\.)+[\w-]{2,7}$/g;
+      const re = /^[\w-.]+@([\w-]+\.)+[\w-]{2,7}$/;
       return re.test(String(email).toLowerCase());
     }
+  },
+  mounted() {
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js?render=6Lf86XspAAAAABPcljUYt_L42Ng3TInsd7s5K_Jy'
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
   }
 }
 </script>
+
+
 
 <style>
 @import url('https://fonts.goodleapis.com/css2?family=Popins:wght300;400;500;600;600;700;800;900&display=swap');
@@ -212,7 +240,7 @@ body{
     position: relative;
     width: 100%;
     min-height: 100vh;
-    padding: 2rem;
+    padding: 32px;
     background-color: var(--second-bg-color);
     overflow: hidden;
     display: flex;
@@ -267,7 +295,7 @@ body{
 }
 
 form {
-  padding: 2.3rem 2.2rem;
+  padding: 36.8px 35.2px;
   z-index: 1;
   overflow: hidden;
   position: relative;
@@ -276,14 +304,14 @@ form {
 .title {
   color: var(--text-color);
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 24px;
   line-height: 2;
-  margin-bottom: 1.2rem;
+  margin-bottom: 19.2px;
 }
 
 .input-container {
   position: relative;
-  margin: 1rem 0;
+  margin: 16px 0;
 }
 
 .input {
@@ -291,16 +319,16 @@ form {
   outline: none;
   border: 2px solid var(--text-color);
   background: none;
-  padding: 0.6rem 1.2rem; 
+  padding: 9.6px 19.2px; 
   color: #fff;
   font-weight: 500;
-  font-size: 0.95rem;
-  letter-spacing: 0.5px;
+  font-size: 15.2px;
+  letter-spacing: 8px;
   transition: 0.3s;
 }
 
 textarea.input {
-  padding: 0.8rem 1.2rem;
+  padding: 12.8px 19.2px;
   min-height: 140px;
   resize: none;
   overflow-y: auto;
@@ -308,12 +336,12 @@ textarea.input {
 
 .input-container label {
   position: absolute;
-  top: -.5rem;
-  left: -1rem;
+  top: -8px;
+  left: -16px;
   transform: translateY(-50%);
-  padding: 0 0.4rem;
+  padding: 0 6.4px;
   color: var(--text-color);
-  font-size: 0.9rem;
+  font-size: 14.4px;
   font-weight: 400;
   pointer-events: none;
   z-index: 1000;
@@ -321,15 +349,15 @@ textarea.input {
 }
 
 .input-container.textarea label {
-  top: -1rem;
+  top: -16px;
   transform: translateY(0);
 }
 
 .btnc {
-  padding: 0.6rem 1.3rem;
+  padding:9.6px 20.8px;
   background-color: var(--main-color);
   border: 2px solid var(--text-color);
-  font-size: 0.95rem;
+  font-size: 15.2px;
   color: var(--text-color);
   line-height: 1;
   outline: none;
@@ -348,14 +376,14 @@ textarea.input {
   top: 0;
   left: 25px;
   transform: translateY(-50%);
-  font-size: 0.8rem;
-  padding: 0 0.4rem;
+  font-size: 12.8px;
+  padding: 0 6.4px;
   color: transparent;
   pointer-events: none;
   z-index: 500;
 }
 .error {
-    font-size: .6rem;
+    font-size: 9.6px;
     color: red;
     margin-top: 10px;
   }
@@ -384,7 +412,7 @@ textarea.input {
   top: 0;
   transform: translateY(-50%);
   left: 25px;
-  font-size: 0.8rem;
+  font-size: 12.8px;
 }
 
 .input-container.focus span:before,
@@ -394,7 +422,7 @@ textarea.input {
 }
 
 .contact-info {
-  padding: 2.3rem 2.2rem;
+  padding: 36.8px 35.2px;
   position: relative;
 }
 
@@ -404,24 +432,24 @@ textarea.input {
 
 .text {
   color: var(--main-color);
-  margin: 1.5rem 0 2rem 0;
+  margin: 24px 0 32px 0;
 }
 
 .information {
   display: flex;
   color: var(--main-color);
-  margin: 0.7rem 0;
+  margin: 11.2px 0;
   align-items: center;
-  font-size: 0.95rem;
+  font-size: 15.2px;
 }
 
 .icon {
   width: 28px;
-  margin-right: 0.7rem;
+  margin-right: 11.2px;
 }
 
 .social-media {
-  padding: 2rem 0 0 0;
+  padding: 32px 0 0 0;
 }
 
 .social-media p {
@@ -430,7 +458,7 @@ textarea.input {
 
 .social-icons {
   display: flex;
-  margin-top: 0.5rem;
+  margin-top: 8px;
 }
 
 .social-icons a {
@@ -441,7 +469,7 @@ textarea.input {
   color: var(--bg-color);
   text-align: center;
   line-height: 35px;
-  margin-right: 0.5rem;
+  margin-right: 8px;
   transition: 0.3s;
 }
 
@@ -522,17 +550,17 @@ textarea.input {
   }
 
   .text {
-    margin: 1rem 0 1.5rem 0;
+    margin: 16px 0 24px 0;
   }
 
   .social-media {
-    padding: 1.5rem 0 0 0;
+    padding: 24px 0 0 0;
   }
 }
 
 @media (max-width: 480px) {
   .container {
-    padding: 1.5rem;
+    padding: 24px;
   }
 
   .contact-info:before {
@@ -546,17 +574,17 @@ textarea.input {
 
   form,
   .contact-info {
-    padding: 1.7rem 1.6rem;
+    padding: 27.2px 25.6px;
   }
 
   .text,
   .information,
   .social-media p {
-    font-size: 0.8rem;
+    font-size: 12.8px;
   }
 
   .title {
-    font-size: 1.15rem;
+    font-size: 18.4px;
   }
 
   .social-icons a {
@@ -570,11 +598,11 @@ textarea.input {
   }
 
   .input {
-    padding: 0.45rem 1.2rem;
+    padding: 7.2px 19.2px;
   }
 
   .btnc {
-    padding: 0.45rem 1.2rem;
+    padding: 7.2px 19.2px;
   }
 }
 .footer{
@@ -582,21 +610,21 @@ textarea.input {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    padding: 2rem 9%;
+    padding: 32px 9%;
     background: var(--bg-color);
 }
 .footer-text p{
-    font-size: 1.2rem;
+    font-size: 19.2px;
 }
 .footer-iconTop a{
     position: relative;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: .8rem;
+    padding: 12.8px;
     background: var(--main-color);
-    border: .2rem solid var(--main-color);
-    border-radius: .6rem;
+    border: 3.2px solid var(--main-color);
+    border-radius: 9.6px;
     z-index: 1;
     overflow: hidden;
 }
@@ -615,7 +643,7 @@ textarea.input {
     width: 100%;
 }
 .footer-iconTop a i {
-    font-size: 2rem;
+    font-size: 32px;
     color: var(--bg-color);
     transition: .5s;
 }

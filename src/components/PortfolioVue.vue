@@ -211,91 +211,91 @@ body{
 
  .portfolio{
     background-color: var(--bg-color);
-    padding-bottom: 5rem;
+    padding-bottom: 80px;
   }
   .portfolio .heading{
     text-align: center;
-    padding-bottom: 5rem;
+    padding-bottom: 80px;
   }
 
   .portfolio .box-container .box .image {
-    height: 20rem;
-    width: 18rem;
+    height: 320px;
+    width: 288px;
     overflow: hidden;
     position: relative;
   }
   .portfolio .box-container .box .image img{
-    height: 10rem;
-    width: 15rem;
+    height: 160px;
+    width: 240px;
   }
   .portfolio .box-container .box{
-    height: 55rem;
+    height: 880px;
   }
   
   .portfolio .box-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 32px;
   }
   .portfolio .box-container .box {
     background-color: var(--second-bg-color);
-    padding: 1rem 1rem;
+    padding: 16px 16px;
     box-shadow: var(--box-shadow);
   }
   
   
   .portfolio .box-container .box .image h2 {
-    font-size: 2rem;
+    font-size: 32px;
     color: var(--main-color);
-    letter-spacing: 0.1rem;
+    letter-spacing: 1.6px;
     text-transform: uppercase;
   }
   
   .portfolio .box-container .box .content  p {
-    font-size: 1.5rem;
+    font-size: 24px;
     color: var(--text-color);
-    letter-spacing: 0.1rem;
+    letter-spacing: 1.6px;
   }
   
 .portfolio .box-container .box .content {
-  width: 15rem;
+  width: 240px;
 }
 .portfolio .box-container .box .btn{
   position: relative;
-  left: 1rem;
+  left: 16px;
   background-color: var(--main-color);
-  width: 4.5rem;
-  height: 2.5rem;
+  width: 72px;
+  height: 40px;
   color: var(--bg-color);
   text-align: center;
-  top: 5rem;
-  font-size: 1.4rem;
-  padding: .1rem;
+  top: 80px;
+  font-size: 22.4px;
+  padding: 1.6px;
   border-radius: 10%;
-  border: solid .1rem var(--contact-color);
+  border: solid 1.6px var(--contact-color);
 }
 .portfolio .box-container .box .a {
   position: relative;
-  bottom: 50rem;
+  bottom: 800px;
 }
 .portfolio .box-container .box .b {
   position: relative;
-  top: 9.5rem;
+  top: 152px;
 }
 .portfolio .box-container .box .c{
   position: relative;
-  top: 12rem;
+  top: 192px;
 }
 .portfolio .box-container .box .e{
   position: relative;
-  top: 12rem;
+  top: 192px;
 }
 .portfolio .box-container{
-  padding: 4rem;
+  padding: 64px;
 }
 .portfolio .box-container .box .app{
   position: relative;
-  top: 3.2rem;
+  top: 51.2px;
 }
 .popup {
     position: fixed; 
@@ -311,14 +311,14 @@ body{
 }
 .popup-content .close {
    width: 90px;
-   font-size: 2rem;
+   font-size: 32px;
 }
 .popup-content h2{
-  font-size: 3rem;
+  font-size: 48px;
   font-weight: 900;
 }
 .popup-content p {
-  font-size: 1.5rem;
+  font-size: 24px;
   color: var(--text-color);
 }
 </style>

@@ -204,28 +204,28 @@ body{
 .skills .heading{
     color: var(--text-color);
     text-align: center;
-    font-size: 3.5rem;
+    font-size: 56px;
 }
 .skills .box-container .box .image {
-    height: 8rem;
-    width: 12rem;
+    height: 180px;
+    width: 292px;
     overflow: hidden;
     position: relative;
-    margin-left: 1.5rem;
+    margin-left: 36px;
   }
   span{
     color: var(--main-color);
   }
   .skills .box-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 2.5rem;
-    margin-top: 2.5rem;
-    padding: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+    padding: 48px;
   }
   .skills .box-container .box {
     background-color: var(--bg-color);
-    padding: 1.5rem;
+    padding: 24px;
   }
  
   .skill .box-container .box .image .content {
@@ -234,25 +234,25 @@ body{
     bottom: 0;
     right: 0;
     background-color: var(--main-color);
-    padding: 1rem;
+    padding: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     transform: translateY(100%);
   }
   .skills .box-container .box .image .content h3 {
-    font-size: 1.5rem;
+    font-size: 24px;
     color: var(--main-color);
     text-transform: uppercase;
   }
   .title{
     color: var(--text-color);
     text-align: center;
-    font-size: 4rem;
+    font-size: 84px;
     font-weight: 700;
   }
   .skills-column2 .title{
-    margin-top: 1rem;
+    margin-top: 16px;
   }
   .pie-chart {
     width: 100px;
@@ -287,13 +287,13 @@ body{
   
   .skills-column2 .box-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 50px;
     
   }
   .skills-column2 .box-container .box .image{
-    height: 10rem;
-    width: 10rem;
+    height: 200px;
+    width: 200px;
     overflow: hidden;
     position: relative;
     
@@ -301,8 +301,8 @@ body{
   .skills-column2 .box-container .box .image .content h3 i {
     text-align: center;
     position: relative;
-    left: 1rem;
-    font-size: 3.5rem;
+    left: 16px;
+    font-size: 56px;
   }
   
   .java .slice3{

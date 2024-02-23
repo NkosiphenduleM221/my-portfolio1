@@ -4,8 +4,10 @@ import Home from '../components/Home.vue'
 import About from '../components/AboutMe.vue'
 import Education from '../components/EducationVue.vue'
 import Skills from '../components/SkillsVue.vue'
+import VueRecaptcha from 'vue-recaptcha'
 
-// Import other components as needed
+Vue.component('vue-recaptcha', VueRecaptcha)
+
 
 Vue.use(VueRouter)
 

@@ -58,20 +58,20 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    padding-bottom: 6rem;
+    gap: 32px;
+    padding-bottom: 96px;
     background-color: var(--second-bg-color);
     color: var(--text-color);
 }
 
   .about-img {
     position: relative;
-    width: 20rem;
-    height: 20rem;
+    width: 320px;
+    height: 320px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
-    top: 2.5rem;
+    top: 40px;
     align-items: center;
     overflow: hidden; 
 }
@@ -116,16 +116,16 @@ body{
 
 .about-content{
     
-    width: 40rem;
+    width: 640px;
 }
 .about-content h3{
-    margin-top: 2rem;
-    font-size: 2.5rem;
+    margin-top: 32px;
+    font-size: 40px;
     color: var(--main-color);
 }
 
 .about-content p {
-    font-size: 1.3rem; 
+    font-size: 20.8px; 
     opacity: 0; 
     animation: animateParagraph 5s ease-out 5s forwards;
 }
